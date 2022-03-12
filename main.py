@@ -54,7 +54,8 @@ if choice == "Login":
           if uploaded_file is not None:
             ef = pandas.read_excel(uploaded_file)
             for index, row in ef.iterrows():
-             email.send_email()
+              st.write["hello"]
+             #email.send_email()
         if bio == "Sms Service":
           st.title("Drop your excel file below containing user name and mobile no.")
           uploaded_file = st.file_uploader("Choose a file")
