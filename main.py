@@ -57,9 +57,9 @@ if choice == "Login":
             ef = pandas.read_excel(uploaded_file)
             for index, row in ef.iterrows():
               email = yagmail.SMTP(user="automail.ojas.python@gmail.com", password="ojaspython123")
-              email.send(to=row['email'],
-                         subject=f"Your {row['interest']} news for today!",
-                         contents=f"Hi {row['name']}\n See what's on about {row['interest']} today. ")
+              email.send(to=row['Email'],
+                         subject=f"Your {row['Interest']} news for today!",
+                         contents=f"Hi {row['Name']}\n See what's on about {row['Interest']} today. ")
 
         if bio == "Sms Service":
           st.title("Drop your excel file below containing user name and mobile no.")
