@@ -3,6 +3,7 @@ import pandas
 from newsfeed import NewsFeed
 import datetime
 import time
+row=None
 
 def send_email():
 
@@ -16,9 +17,7 @@ def send_email():
              subject=f"Your {row['interest']} news for today!",
              contents=f"Hi {row['name']}\n See what's on about {row['interest']} today. \n{news_feed.get()}")
 
-df = pandas.read_excel()
-for index, row in df.iterrows():
-      send_email()
+
 
 #
 
