@@ -29,6 +29,13 @@ st.sidebar.title("Our Project app")
 choice=st.sidebar.selectbox('Login/SignUp',['Login','Sign up'])
 email=st.sidebar.text_input("Enter your email address")
 password=st.sidebar.text_input("Enter your password",type="password")
+hide_menu_style="""
+<style>
+#MainMenu{visibility:hidden;}
+footer{visibility:hidden;}
+</style>
+"""
+st.markdown(hide_menu_style,unsafe_allow_html=True)
 
 
 
