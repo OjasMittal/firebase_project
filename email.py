@@ -4,9 +4,8 @@ from newsfeed import NewsFeed
 import datetime
 import time
 row=None
-class Mail():
 
-    def send_email(self):
+def send_email(self):
 
       today = datetime.datetime.now().strftime('%Y-%m-%d')
       yesterday = (datetime.datetime.now() - datetime.timedelta(days=1)).strftime('%Y-%m-%d')
@@ -21,8 +20,7 @@ class Mail():
 if __name__=="__main__":
     ef = pandas.read_excel("people.xlxs")
     for index, row in ef.iterrows():
-        mail=Mail()
-        print(mail.send_email())
+        print(send_email())
 
 
 
