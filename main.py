@@ -48,6 +48,7 @@ if choice == "Login":
       if login:
         user = auth.sign_in_with_email_and_password(email, password)
         bio = st.radio('Jump to', ['Home', 'Sms Service', 'Email Service'])
+        st.write('<style>div.row-widget.stRadio > div {flex-direction:row;}</style>',unsafe_allow_html=True)
         if bio=="Home":
           st.info("This app is designed to provide free and bulk sms and email services. Just import your file and enjoy!")
         if bio == "Email Service":
@@ -57,6 +58,7 @@ if choice == "Login":
             ef = pandas.read_excel(uploaded_file)
             for index, row in ef.iterrows():
               email.send_email()
+
         if bio == "Sms Service":
           st.title("Drop your excel file below containing user name and mobile no.")
           uploaded_file = st.file_uploader("Choose a file")
