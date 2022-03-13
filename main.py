@@ -1,7 +1,7 @@
 import pyrebase
 import streamlit as st
 import pandas
-from email import send_email
+from email import *
 import yagmail
 
 from datetime import datetime
