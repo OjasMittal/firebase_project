@@ -1,7 +1,7 @@
 import pyrebase
 import streamlit as st
 import pandas
-#import email
+from email import Email
 import yagmail
 
 from datetime import datetime
@@ -15,7 +15,7 @@ firebaseConfig = {
   'messagingSenderId': "497317595554",
   'appId': "1:497317595554:web:9f6c1d3840b74879bbcafb",
   'measurementId': "G-5M4C07T8QN"
-};
+}
 
 firebase=pyrebase.initialize_app(firebaseConfig)
 auth=firebase.auth()
@@ -26,7 +26,7 @@ st.subheader('"Good communication is a major factor in development of a country"
 st.sidebar.title("Our Project app")
 choice=st.sidebar.selectbox('Login/SignUp',['Login','Sign up'])
 email=st.sidebar.text_input("Enter your email address")
-password=st.sidebar.text_input("Enter your password")
+password=st.sidebar.text_input("Enter your password",type="password")
 
 
 
@@ -56,14 +56,11 @@ if choice == "Login":
           if uploaded_file is not None:
             ef = pandas.read_excel(uploaded_file)
             for index, row in ef.iterrows():
-              email = yagmail.SMTP(user="automail.ojas.python@gmail.com", password="ojaspython123")
-              email.send(to=row['Email'],
-                         subject=f"Your {row['Interest']} news for today!",
-                         contents=f"Hi {row['Name']}\n See what's on about {row['Interest']} today. ")
-
+              mail=Email()
+              mail.send_email()
         if bio == "Sms Service":
           st.title("Drop your excel file below containing user name and mobile no.")
           uploaded_file = st.file_uploader("Choose a file")
           if uploaded_file is not None:
             st.balloons()
-#
+
