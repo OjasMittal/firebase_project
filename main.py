@@ -3,7 +3,7 @@ import streamlit as st
 import pandas
 from email import *
 import yagmail
-from annotated_text import annotated_text
+#from annotated_text import annotated_text
 from datetime import datetime
 
 firebaseConfig = {
