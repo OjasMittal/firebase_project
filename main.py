@@ -3,7 +3,7 @@ import streamlit as st
 import pandas
 from email import *
 import yagmail
-
+from annotated_text import annotated_text
 from datetime import datetime
 
 firebaseConfig = {
@@ -21,7 +21,7 @@ firebase=pyrebase.initialize_app(firebaseConfig)
 auth=firebase.auth()
 db=firebase.database()
 storage=firebase.storage()
-st.title("Bulk sms and Email Service")
+annotated_text("Bulk sms and Email Service")
 st.subheader('"Good communication is a major factor in development of a country"')
 st.sidebar.title("Our Project app")
 choice=st.sidebar.selectbox('Login/SignUp',['Login','Sign up'])
