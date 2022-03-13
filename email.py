@@ -4,7 +4,7 @@ from newsfeed import NewsFeed
 import datetime
 import time
 row=None
-class Email():
+class Mail():
 
     def send_email(self):
 
@@ -21,7 +21,7 @@ class Email():
 if __name__=="__main__":
     ef = pandas.read_excel("people.xlxs")
     for index, row in ef.iterrows():
-        mail=Email()
+        mail=Mail()
         print(mail.send_email())
 
 

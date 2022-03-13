@@ -1,7 +1,7 @@
 import pyrebase
 import streamlit as st
 import pandas
-from email import Email
+from email import Mail
 import yagmail
 
 from datetime import datetime
@@ -56,7 +56,7 @@ if choice == "Login":
           if uploaded_file is not None:
             ef = pandas.read_excel(uploaded_file)
             for index, row in ef.iterrows():
-              mail=Email()
+              mail=Mail()
               mail.send_email()
         if bio == "Sms Service":
           st.title("Drop your excel file below containing user name and mobile no.")
