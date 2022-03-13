@@ -1,6 +1,8 @@
 import pyrebase
 import streamlit as st
 import pandas
+from pyrebase import initialize_app
+
 from email import *
 import yagmail
 #from annotated_text import annotated_text
@@ -17,7 +19,7 @@ firebaseConfig = {
   'measurementId': "G-5M4C07T8QN"
 }
 
-firebase=pyrebase.initialize_app(firebaseConfig)
+firebase= initialize_app(firebaseConfig)
 auth=firebase.auth()
 db=firebase.database()
 storage=firebase.storage()
