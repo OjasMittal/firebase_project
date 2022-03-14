@@ -101,7 +101,7 @@ if choice == "Login":
               secret="done"
               state=st.session_state['key']=secret
               #trial
-              state.sync()
+
 
         if bio == "Sms Service":
           image3 = Image.open('bulk sms.jpg')
