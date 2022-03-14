@@ -4,6 +4,9 @@ import pandas
 from pyrebase import initialize_app
 from PIL import Image
 image = Image.open('india connected.jpg')
+from io import BytesIO
+import xlsxwriter
+output = BytesIO()
 
 
 
@@ -71,7 +74,24 @@ if choice == "Login":
         if bio == "Email Service":
           image2 = Image.open('bulk email.jpg')
           st.image(image2, caption='Bulk email in a click')
-          st.title("Drop your excel file below containing user name,interest and email id")
+          workbook = xlsxwriter.Workbook(output, {'in_memory': True})
+          worksheet = workbook.add_worksheet()
+
+          worksheet.write('A1', 'Name')
+          worksheet.write('B1', 'Surname')
+          worksheet.write('C1', 'Email')
+          worksheet.write('D1', 'Interest')
+          worksheet.write('E1','number')
+          workbook.close()
+
+          st.download_button(
+            label="Download Excel template file",
+            data=output.getvalue(),
+            file_name="people.xlsx",
+            mime="application/vnd.ms-excel"
+          )
+
+          st.title("Download,fill and drop the excel file below ")
           uploaded_file = st.file_uploader("Choose a file")
           if uploaded_file is not None:
             ef = pandas.read_excel(uploaded_file)
@@ -81,6 +101,18 @@ if choice == "Login":
         if bio == "Sms Service":
           image3 = Image.open('bulk sms.jpg')
           st.image(image3, caption='Bulk SMS in a click')
+          workbook1 = xlsxwriter.Workbook(output, {'in_memory': True})
+          worksheet1 = workbook1.add_worksheet()
+
+          worksheet1.write('A1', 'numbers')
+          workbook1.close()
+
+          st.download_button(
+            label="Download Excel template file",
+            data=output.getvalue(),
+            file_name="people.xlsx",
+            mime="application/vnd.ms-excel"
+          )
           st.title("Drop your excel file below containing user name and mobile no.")
           uploaded_file = st.file_uploader("Choose a file")
           if uploaded_file is not None:
