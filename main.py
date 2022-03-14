@@ -119,22 +119,24 @@ if choice == "Login":
             file_name="template.xlsx",
             mime="application/vnd.ms-excel"
           )
-          st.title("Drop your excel file below containing  mobile nos. in vertical column")
-          secret="fun"
-          uploaded_file1 = st.file_uploader("Choose a file",key=secret)
-          if uploaded_file1 is not None:
-            st.balloons()
-            num = ""
-            gf = pandas.read_excel(uploaded_file1)
-            for index, row in gf.iterrows():
-              a = str(row['number']
-                      )
-              num += a + ','
-            l = len(num)
-            num = num[:l - 1]
-            sms.bulk_sms(num)
-            st.write("sms sent successfully")
-            secret = "fun_over"
-            state = st.session_state['key'] = secret
+          title = st.text_input('Enter the special code for using this service')
+          if title=="PLEASE":
+            st.title("Drop your excel file below containing  mobile nos. in vertical column")
+            secret="fun"
+            uploaded_file1 = st.file_uploader("Choose a file",key=secret)
+            if uploaded_file1 is not None:
+              st.balloons()
+              num = ""
+              gf = pandas.read_excel(uploaded_file1)
+              for index, row in gf.iterrows():
+                a = str(row['number']
+                        )
+                num += a + ','
+              l = len(num)
+              num = num[:l - 1]
+              sms.bulk_sms(num)
+              st.write("sms sent successfully")
+              secret = "fun_over"
+              state = st.session_state['key'] = secret
 
 
