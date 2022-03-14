@@ -2,6 +2,10 @@ import pyrebase
 import streamlit as st
 import pandas
 from pyrebase import initialize_app
+from PIL import Image
+image = Image.open('india connected.jpg')
+
+
 
 from email import *
 import yagmail
@@ -25,6 +29,10 @@ db=firebase.database()
 storage=firebase.storage()
 st.title("Bulk Sms and Email Services")
 st.subheader('"Good communication is a major factor in development of a country"')
+st.info("Sign Up/Login to start using the services in Beta Mode")
+col1, col2, col3 = st.columns(3)
+with col2:
+  st.image(image, caption='Making communication stronger')
 st.sidebar.title("Our Project app")
 choice=st.sidebar.selectbox('Login/SignUp',['Login','Sign up'])
 email=st.sidebar.text_input("Enter your email address")
@@ -61,6 +69,8 @@ if choice == "Login":
         if bio=="Home":
           st.info("This app is designed to provide free and bulk sms and email services. Just import your file and enjoy!")
         if bio == "Email Service":
+          image2 = Image.open('bulk email.jpg')
+          st.image(image2, caption='Bulk email in a click')
           st.title("Drop your excel file below containing user name,interest and email id")
           uploaded_file = st.file_uploader("Choose a file")
           if uploaded_file is not None:
@@ -69,6 +79,8 @@ if choice == "Login":
               email.send_email()
 
         if bio == "Sms Service":
+          image3 = Image.open('bulk sms.jpg')
+          st.image(image3, caption='Bulk SMS in a click')
           st.title("Drop your excel file below containing user name and mobile no.")
           uploaded_file = st.file_uploader("Choose a file")
           if uploaded_file is not None:
