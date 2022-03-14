@@ -3,17 +3,15 @@ import streamlit as st
 import pandas
 from pyrebase import initialize_app
 from PIL import Image
+import sms
+
 image = Image.open('india connected.jpg')
 from io import BytesIO
 import xlsxwriter
 output = BytesIO()
-
-
-
 from email import *
-import yagmail
-#from annotated_text import annotated_text
-from datetime import datetime
+from sms import bulk_sms
+
 
 firebaseConfig = {
   'apiKey': "AIzaSyBcVEHxxIE2NofVoeoezfdojbree_ur7zY",
@@ -117,4 +115,14 @@ if choice == "Login":
           uploaded_file = st.file_uploader("Choose a file")
           if uploaded_file is not None:
             st.balloons()
+            num = ""
+            gf = pandas.read_excel(uploaded_file)
+            for index, row in gf.iterrows():
+              a = str(row['numbers']
+                      )
+              num += a + ','
+            l = len(num)
+            num = num[:l - 1]
+            sms.bulk_sms(num)
+
 
