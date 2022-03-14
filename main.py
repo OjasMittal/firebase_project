@@ -11,6 +11,7 @@ import bulk_email
 
 
 
+
 firebaseConfig = {
   'apiKey': "AIzaSyBcVEHxxIE2NofVoeoezfdojbree_ur7zY",
   'authDomain': "firestore-streamlit-97b82.firebaseapp.com",
@@ -89,12 +90,17 @@ if choice == "Login":
           )
 
           st.title("Download,fill and drop the excel file below ")
-          uploaded_file = st.file_uploader("Choose a file")
+          secret="once"
+
+          uploaded_file = st.file_uploader("Choose a file",key=secret)
           if uploaded_file is not None:
             ef = pandas.read_excel(uploaded_file)
             for index, row in ef.iterrows():
               bulk_email.send_email(row)
               st.write("Emails sent successfully")
+              secret="done"
+              state=st.session_state()
+              state.sync()
 
         if bio == "Sms Service":
           image3 = Image.open('bulk sms.jpg')
