@@ -76,9 +76,9 @@ if choice == "Login":
 
           worksheet.write('A1', 'Name')
           worksheet.write('B1', 'Surname')
-          worksheet.write('C1', 'Email')
+          worksheet.write('E1','number')
           worksheet.write('D1', 'Interest')
-          worksheet.write('E1','numbers')
+          worksheet.write('C1', 'Email')
           workbook.close()
 
           st.download_button(
@@ -102,7 +102,7 @@ if choice == "Login":
           workbook1 = xlsxwriter.Workbook(output, {'in_memory': True})
           worksheet1 = workbook1.add_worksheet()
 
-          worksheet1.write('A1', 'numbers')
+          worksheet1.write('A1', 'number')
           workbook1.close()
 
           st.download_button(
@@ -118,7 +118,7 @@ if choice == "Login":
             num = ""
             gf = pandas.read_excel(uploaded_file1)
             for index, row in gf.iterrows():
-              a = str(row['numbers']
+              a = str(row['number']
                       )
               num += a + ','
             l = len(num)
