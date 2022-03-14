@@ -51,7 +51,7 @@ st.markdown(hide_menu_style,unsafe_allow_html=True)
 
 
 if choice=="Sign up":
-  handle=st.sidebar.text_input("Please enter you name",value="Default")
+  handle=st.sidebar.text_input("Please enter you name",value="OJAS")
   submit=st.sidebar.button('Create my Account')
   if submit:
     user=auth.create_user_with_email_and_password(email,password)
