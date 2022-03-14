@@ -111,7 +111,7 @@ if choice == "Login":
             file_name="template.xlsx",
             mime="application/vnd.ms-excel"
           )
-          st.title("Drop your excel file below containing user name and mobile no.")
+          st.title("Drop your excel file below containing  mobile nos. in vertical column")
           uploaded_file = st.file_uploader("Choose a file")
           if uploaded_file is not None:
             st.balloons()
