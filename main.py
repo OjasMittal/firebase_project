@@ -11,7 +11,7 @@ import bulk_email
 
 
 
-img=Image.open('icon_image')
+img=Image.open('icon_image.jpg')
 st.set_page_config(page_title="Email and Sms Service",page_icon=img)
 firebaseConfig = {
   'apiKey': "AIzaSyBcVEHxxIE2NofVoeoezfdojbree_ur7zY",
