@@ -99,7 +99,7 @@ if choice == "Login":
               bulk_email.send_email(row)
               st.write("Emails sent successfully")
               secret="done"
-              state=st.session_state()
+              state=st.session_state['key']=secret
               #trial
               state.sync()
 
