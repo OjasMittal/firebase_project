@@ -87,7 +87,7 @@ if choice == "Login":
           st.download_button(
             label="Download Excel template file",
             data=output.getvalue(),
-            file_name="people.xlsx",
+            file_name="template.xlsx",
             mime="application/vnd.ms-excel"
           )
 
@@ -110,7 +110,7 @@ if choice == "Login":
           st.download_button(
             label="Download Excel template file",
             data=output.getvalue(),
-            file_name="people.xlsx",
+            file_name="template.xlsx",
             mime="application/vnd.ms-excel"
           )
           st.title("Drop your excel file below containing user name and mobile no.")
