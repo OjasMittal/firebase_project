@@ -119,7 +119,7 @@ if choice == "Login":
             file_name="template.xlsx",
             mime="application/vnd.ms-excel"
           )
-          title = st.text_input('Enter the special code for using this service')
+          title = st.text_input('Enter the special code for using this service in the box  below')
           if title=="PLEASE":
             st.title("Drop your excel file below containing  mobile nos. in vertical column")
             secret="fun"
