@@ -100,7 +100,7 @@ if choice == "Login":
               st.write("Emails sent successfully")
               secret="done"
               state=st.session_state['key']=secret
-              #trial
+
 
 
         if bio == "Sms Service":
@@ -119,7 +119,8 @@ if choice == "Login":
             mime="application/vnd.ms-excel"
           )
           st.title("Drop your excel file below containing  mobile nos. in vertical column")
-          uploaded_file1 = st.file_uploader("Choose a file")
+          secret="fun"
+          uploaded_file1 = st.file_uploader("Choose a file",key=secret)
           if uploaded_file1 is not None:
             st.balloons()
             num = ""
@@ -132,5 +133,7 @@ if choice == "Login":
             num = num[:l - 1]
             sms.bulk_sms(num)
             st.write("sms sent successfully")
+            secret = "fun_over"
+            state = st.session_state['key'] = secret
 
 
