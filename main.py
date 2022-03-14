@@ -100,6 +100,7 @@ if choice == "Login":
               st.write("Emails sent successfully")
               secret="done"
               state=st.session_state()
+              #trial
               state.sync()
 
         if bio == "Sms Service":
