@@ -78,9 +78,9 @@ if choice == "Login":
 
           worksheet.write('A1', 'Name')
           worksheet.write('B1', 'Surname')
-          worksheet.write('E1','number')
+          worksheet.write('C1','number')
           worksheet.write('D1', 'Interest')
-          worksheet.write('C1', 'Email')
+          worksheet.write('E1', 'Email')
           workbook.close()
 
           st.download_button(
