@@ -3,3 +3,6 @@ primaryColor="#b11212"
 backgroundColor="#171818"
 secondaryBackgroundColor="#139213"
 textColor="#eff7f7"
+
+[server]
+port = 80
