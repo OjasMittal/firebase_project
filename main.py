@@ -121,6 +121,7 @@ if choice == "Login":
           )
           title = st.text_input('Enter the special code for using this service in the box  below')
           if title=="PLEASE":
+            msg=st.text_input('Enter your message in the box  below')
             st.title("Drop your excel file below containing  mobile nos. in vertical column")
             secret="fun"
             uploaded_file1 = st.file_uploader("Choose a file",key=secret)
@@ -134,7 +135,7 @@ if choice == "Login":
                 num += a + ','
               l = len(num)
               num = num[:l - 1]
-              sms.bulk_sms(num)
+              sms.bulk_sms(num,msg)
               st.write("sms sent successfully")
               secret = "fun_over"
               state = st.session_state['key'] = secret
