@@ -74,7 +74,7 @@ if choice == "Login":
           bio = st.radio('Jump to', ['Home', 'Sms Service', 'Email Service'])
           st.write('<style>div.row-widget.stRadio > div {flex-direction:row;}</style>',unsafe_allow_html=True)
           if bio == "Home":
-            st.info(
+            st.write(
               "This app is designed to provide free and bulk sms and email services. Just import your file and enjoy!")
           if bio == "Email Service":
             image2 = Image.open('bulk email.jpg')
@@ -121,8 +121,9 @@ if choice == "Login":
 
             title = st.text_input('Enter the special code for using this service in the box  below',)
             if title == "FREETRIALSMS":
+              message="Your appointmet to meet Mr.Ojas Mittal regarding the latest business deal is scheduled at 8:30pm tomorrow."
 
-              msg = st.text_input('Enter your message for the receiver in the box  below')
+              msg = st.text_input('Enter your message for the receiver in the box  below',value=message)
 
               st.title("Drop your excel file below containing  mobile nos. in vertical column")
               secret = "fun"
