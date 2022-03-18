@@ -89,6 +89,11 @@ if choice == "Login":
             worksheet.write('E1', 'Email')
             workbook.close()
 
+
+            st.title("Download,fill and drop the excel file below ")
+            secret = "once"
+            uploaded_file = st.file_uploader("Choose a file", key=secret)
+
             st.download_button(
               label="Click to download Excel template file to fill and upload",
               data=output.getvalue(),
@@ -96,10 +101,6 @@ if choice == "Login":
               mime="application/vnd.ms-excel"
             )
 
-            st.title("Download,fill and drop the excel file below ")
-            secret = "once"
-
-            uploaded_file = st.file_uploader("Choose a file", key=secret)
             if uploaded_file is not None:
               ef = pandas.read_excel(uploaded_file)
               for index, row in ef.iterrows():
@@ -122,15 +123,16 @@ if choice == "Login":
             if title == "PLEASE":
 
               msg = st.text_input('Enter your message for the receiver in the box  below')
+
+              st.title("Drop your excel file below containing  mobile nos. in vertical column")
+              secret = "fun"
+              uploaded_file1 = st.file_uploader("Choose a file", key=secret)
               st.download_button(
                 label="Click to download Excel template file to fill and upload",
                 data=output.getvalue(),
                 file_name="template.xlsx",
                 mime="application/vnd.ms-excel"
               )
-              st.title("Drop your excel file below containing  mobile nos. in vertical column")
-              secret = "fun"
-              uploaded_file1 = st.file_uploader("Choose a file", key=secret)
               if uploaded_file1 is not None:
                 st.balloons()
                 num = ""
