@@ -120,7 +120,7 @@ if choice == "Login":
 
 
             title = st.text_input('Enter the special code for using this service in the box  below',)
-            if title == "PLEASE":
+            if title == "FREETRIALSMS":
 
               msg = st.text_input('Enter your message for the receiver in the box  below')
 
