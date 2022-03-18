@@ -60,8 +60,8 @@ if choice=="Sign up":
     user=auth.sign_in_with_email_and_password(email,password)
     db.child(user['localId']).child("Handle").set(handle)
     db.child(user['localId']).child("Id").set(user['localId'])
-    st.title("Welcome"+handle)
-    st.info("Login through login option in drop down menu")
+    st.title("Welcome "+handle+" !")
+    st.info("Login through login option in drop down menu to use the services")
 if choice == "Login":
       login = st.sidebar.checkbox('Login')
       if login:
