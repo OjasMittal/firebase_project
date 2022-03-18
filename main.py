@@ -51,17 +51,21 @@ st.markdown(hide_menu_style,unsafe_allow_html=True)
 
 
 if choice=="Sign up":
-  handle=st.sidebar.text_input("Please enter you name",value="OJAS")
+  handle=st.sidebar.text_input("Please enter you name",value="Ojas")
   submit=st.sidebar.button('Create my Account')
   if submit:
-    user=auth.create_user_with_email_and_password(email,password)
-    st.success("Your account is created successfully!")
-    st.balloons()
-    user=auth.sign_in_with_email_and_password(email,password)
-    db.child(user['localId']).child("Handle").set(handle)
-    db.child(user['localId']).child("Id").set(user['localId'])
-    st.title("Welcome "+handle+" !")
-    st.info("Login through login option in drop down menu to use the services")
+    try:
+      user=auth.create_user_with_email_and_password(email,password)
+      st.success("Your account is created successfully!")
+      st.balloons()
+      user = auth.sign_in_with_email_and_password(email, password)
+      db.child(user['localId']).child("Handle").set(handle)
+      db.child(user['localId']).child("Id").set(user['localId'])
+      st.title("Welcome " + handle + " !")
+    except:
+      st.info("This account already exists")
+
+    st.info("Login through login option in the left drop down menu to use the services")
 if choice == "Login":
       login = st.sidebar.checkbox('Login')
       if login:
