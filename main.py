@@ -34,7 +34,7 @@ st.info("Sign Up/Login to start using the services in Beta Mode")
 col1, col2, col3 = st.columns(3)
 with col2:
   image = Image.open('india connected.jpg')
-  st.image(image, caption='Making communication stronger')
+  st.image(image, caption='Making communication stronger',width=400)
 st.sidebar.title("WELCOME!")
 choice=st.sidebar.selectbox('Login/SignUp',['Login','Sign up'])
 email=st.sidebar.text_input("Enter your email address")
