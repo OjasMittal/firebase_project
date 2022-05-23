@@ -12,7 +12,7 @@ def send_email(row):
       news_feed = NewsFeed(interest=row['Interest'],
                            from_date=yesterday,
                            to_date=today)
-      email = yagmail.SMTP(user="automail.ojas.python@gmail.com", password="njprxapnhhwjcshj")
+      email = yagmail.SMTP(user="automail.ojas.python@gmail.com", password="lyzuitlztqswvywe")
       email.send(to=row['Email'],
                  subject=f"Your {row['Interest']} news for today!",
                  contents=f"Hi {row['Name']} \n See what's on about {row['Interest']} today. \n{news_feed.get()}")
